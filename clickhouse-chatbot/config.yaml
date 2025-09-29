@@ -1,0 +1,13 @@
+intents:
+  - pattern: "\\b(list|show)\\s+db"   # regex to match
+    sql: "SHOW DATABASES"
+    format: "list"
+
+  - pattern: "list tables"
+    sql: "SHOW TABLES FROM default"   # default DB (can be replaced)
+    format: "list"
+
+  - pattern: "how many.*table"
+    sql: "SELECT count(*) FROM {table}"
+    format: "count"
+
